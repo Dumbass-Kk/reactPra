@@ -8,10 +8,14 @@ class CommentList extends Component {
       conteng: 'this is test'
     }]
   }
+
+  handleDeleteComment (v) {
+    this.props.onDelete(v)
+  }
   render () {
     return (
       <div>
-        {this.props.comments.map((item, index) => <Comment item={item} key={index}/>)}
+        {this.props.comments.map((item, index) => <Comment item={item} key={index} index={index} onDeleteComment={this.handleDeleteComment.bind(this)}/>)}
       </div>
     )
   }
